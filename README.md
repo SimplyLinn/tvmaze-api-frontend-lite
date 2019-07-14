@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/SimplyLinn/tvmaze-api-frontend-lite.svg?branch=master)](https://travis-ci.org/SimplyLinn/tvmaze-api-frontend-lite)
-# tvmaze-api-frontend
+# tvmaze-api-frontend-lite
 [Live build](https://tvmaze-lite.opposite.dev/)
 ## Project setup
 ```
