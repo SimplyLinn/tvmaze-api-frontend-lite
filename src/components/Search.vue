@@ -6,7 +6,6 @@
 </template>
 
 <script>
-import { getCurTime, SearchCancelledError } from '../utils';
 
 export default {
   name: 'app',
@@ -18,8 +17,10 @@ export default {
   methods: {
     submit() {
       this.$router.push({ name: 'search', params: {query: this.searchTerm}});
-      console.log(this.searchTerm);
     }
+  },
+  mounted () {
+    this.searchTerm=this.$route.params.query || '';
   }
 }
 </script>

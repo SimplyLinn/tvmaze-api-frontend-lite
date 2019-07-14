@@ -55,8 +55,8 @@
       </div>
     </b-modal>
   </b-container>
-  <div v-else-if="isOffline">
-    You are offline and this show is not in the local database.
+  <div v-else>
+    Did not find anything for the search <b>{{query}}</b>
   </div>
 </template>
 
@@ -65,13 +65,11 @@ import { convertHtmlToText } from '../utils';
 import HttpsImg from './HttpsImg';
 import api from '../tvmazeApi.js';
 
-const SUMMARY_LENGTH = 350;
 export default {
   name: 'app',
   data() {
     return {
       show: null,
-      isOffline: navigator.onLine === false
     };
   },
   components: {
@@ -134,7 +132,6 @@ export default {
       console.log(`Fetching show: ${query} (${typeof query})`);
       try {
         this.show = (await api.search(query)).data;
-        console.log(this.show);
       } catch (err) {
         console.error(err);
       }

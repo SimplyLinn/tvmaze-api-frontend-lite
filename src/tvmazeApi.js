@@ -19,7 +19,7 @@ class TVMazeAPI {
 
   async doRequest(config) {
     let attempt = 0;
-    while(true) {
+    for(;;) {
       try {
         return await axiosInstance.request(config);
       } catch (err) {
