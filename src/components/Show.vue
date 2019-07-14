@@ -55,6 +55,9 @@
       </div>
     </b-modal>
   </b-container>
+  <div v-else-if="searching">
+    Searching...
+  </div>
   <div v-else>
     Did not find anything for the search <b>{{query}}</b>
   </div>
@@ -70,6 +73,7 @@ export default {
   data() {
     return {
       show: null,
+      searching: false
     };
   },
   components: {
@@ -130,10 +134,13 @@ export default {
   methods: {
     async searchShow(query) {
       console.log(`Fetching show: ${query} (${typeof query})`);
+      this.searching = true;
       try {
         this.show = (await api.search(query)).data;
       } catch (err) {
         console.error(err);
+      } finally {
+        this.searching = false;
       }
     },
     pad(val, size, char) {
@@ -155,6 +162,7 @@ export default {
   watch: {
     query (newQuery, oldQuery) {
       if(oldQuery === newQuery) return;
+      this.show = null;
       this.searchShow(newQuery);
     }
   },
