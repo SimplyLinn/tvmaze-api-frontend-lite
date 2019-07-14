@@ -1,0 +1,107 @@
+@import 'node_modules/bootstrap/scss/bootstrap';
+@import 'node_modules/bootstrap-vue/src/index.scss';
+
+html { overflow-y: scroll; }
+
+@include media-breakpoint-up(sm) {
+  html {
+    margin-left: calc(100vw - 100%);
+    overflow-y: auto;
+  }
+}
+
+.icon {
+  position: relative;
+  display: inline-block;
+  bottom: .25em;
+  height: 1.5em;
+  transition: opacity 1.15s ease-in-out;
+  img {
+    height: 100%;
+    vertical-align: bottom;
+  }
+  .onhover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+  }
+}
+
+.btn:not(:hover):not(.active) {
+  .icon :not(.onhover) {
+    opacity: 1;
+  }
+  .icon .onhover {
+    opacity: 0;  
+  }
+}
+
+.btn:hover, .btn.active {
+  .icon :not(.onhover) {
+    opacity: 0;
+  }
+  .icon .onhover {
+    opacity: 1;  
+  }
+}
+
+.icon.center {
+  bottom: 0;
+}
+
+.searchResContainer {
+  position: relative;
+  width: 100%;
+}
+
+.searchForm {
+  position: relative;
+  z-index: 2;
+}
+
+.searchbox {
+  position: absolute;
+  background: white;
+  top: -.5em;
+  left: 0;
+  right: 0;
+  padding-top: .75em;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  border-top: none; 
+  margin-bottom: 1em;
+  padding-bottom: 1em;
+  z-index: 1;
+}
+
+.searchBlur {
+  position: absolute;
+  background: rgba(255, 255, 255, .8);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.resultEntry {
+  cursor: pointer;
+  margin-top: -.5em;
+  padding-top: .5em;
+  margin-bottom: -.5em;
+  padding-bottom: .5em;
+  &:hover {
+    background: lightgrey;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  #mainNav {
+    .navbar-nav {
+      width: 100%;
+    }
+    .nav-github-link {
+      margin-left: auto;
+    }
+  }
+}
