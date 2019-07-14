@@ -8,7 +8,7 @@
         </b-navbar-toggle>
         <b-collapse is-nav id="mainNav">
           <b-navbar-nav>
-            <b-nav-item to="about">About Us</b-nav-item>
+            <b-nav-item to="/about">About Us</b-nav-item>
             <b-nav-item href="https://github.com/SimplyLinn/tvmaze-api-frontend-lite" class="nav-github-link"><img class="icon" src="/static/img/GitHub-Mark.png"> Github</b-nav-item>
           </b-navbar-nav>
         </b-collapse>
